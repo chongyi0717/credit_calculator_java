@@ -51,7 +51,8 @@ public class delete_content extends AppCompatActivity {
     private void delete(String word,String filename)
     {
         String content=read(filename);
-        content=content.replace(word,"");
+        content=content.replaceFirst("\n","");
+        content=content.replaceFirst(word,"");
         save(content,filename);
     }
     private void save(String content,String filename) {

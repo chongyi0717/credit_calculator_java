@@ -16,6 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 
 public class add_content extends AppCompatActivity {
@@ -53,11 +54,11 @@ public class add_content extends AppCompatActivity {
             }
         });
     }
-    private void save(String content,String filename) {
+    private void save(String content, String filename) {
         FileOutputStream fileOutputStream=null;
 
         try {
-            fileOutputStream = openFileOutput(filename, MODE_APPEND);
+            fileOutputStream = openFileOutput(filename,MODE_APPEND);
             fileOutputStream.write(content.getBytes());
 
         } catch (Exception e) {

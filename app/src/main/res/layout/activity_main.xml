@@ -35,4 +35,11 @@
         android:text="移除"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_read_subject_credit" />
+    <Button
+        android:id="@+id/btn_quit"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
+        android:text="退出"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_remove_subject_credit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

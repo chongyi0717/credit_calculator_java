@@ -14,17 +14,27 @@ public class credit_need extends AppCompatActivity {
     private final String File_Credit_Need = "credit_need.xml";
     private Button btn_send_show;
     private EditText et1_show;
+    private Button btn_quit_show;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_need);
         btn_send_show=this.findViewById(R.id.btn_send);
         et1_show=this.findViewById(R.id.et1);
+        btn_quit_show=this.findViewById(R.id.btn_quit);
         btn_send_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 save(et1_show.getText().toString(),File_Credit_Need);
                 et1_show.setText("");
+                finish();
+            }
+        });
+
+        btn_quit_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
