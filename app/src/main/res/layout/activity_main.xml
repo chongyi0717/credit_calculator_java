@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/btn_add_credit_need"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
+        android:text="设置学分数"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_add_subject_credit"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
+        android:text="添加"
+        app:layout_constraintLeft_toLeftOf="@id/btn_add_credit_need"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_credit_need" />
+    <Button
+        android:id="@+id/btn_read_subject_credit"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
+        android:text="讀取"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_subject_credit" />
+    <Button
+        android:id="@+id/btn_remove_subject_credit"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
+        android:text="移除"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_read_subject_credit" />
+</androidx.constraintlayout.widget.ConstraintLayout>
