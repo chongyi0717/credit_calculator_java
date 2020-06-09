@@ -39,10 +39,12 @@ public class add_content extends AppCompatActivity {
         btn_send_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                save(et_subject_show.getText().toString()+"\n", File_Subject);
-                save(et_credit_show.getText().toString()+"\n", File_Credit);
-                et_credit_show.setText("");
-                et_subject_show.setText("");
+                if(!et_credit_show.getText().toString().isEmpty() && !et_subject_show.getText().toString().isEmpty()) {
+                    save(et_subject_show.getText().toString() + "\n", File_Subject);
+                    save(et_credit_show.getText().toString() + "\n", File_Credit);
+                    et_credit_show.setText("");
+                    et_subject_show.setText("");
+                }
             }
         });
         btn_back_show.setOnClickListener(new View.OnClickListener() {
