@@ -32,8 +32,10 @@ public class delete_content extends AppCompatActivity {
         btn_remove_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delete(et_subject_show.getText().toString(),File_Subject);
-                delete(et_credit_show.getText().toString(),File_Credit);
+
+                    delete(et_subject_show.getText().toString(), File_Subject);
+                    delete(et_credit_show.getText().toString(), File_Credit);
+
                 et_credit_show.setText("");
                 et_subject_show.setText("");
             }
@@ -51,9 +53,10 @@ public class delete_content extends AppCompatActivity {
     private void delete(String word,String filename)
     {
         String content=read(filename);
-        content=content.replaceFirst("\n","");
-        content=content.replaceFirst(word,"");
-        save(content,filename);
+
+            content = content.replace(word, "");
+
+        save(content, filename);
     }
     private void save(String content,String filename) {
         FileOutputStream fileOutputStream=null;
