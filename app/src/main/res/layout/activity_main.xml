@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".MainActivity">
 
 
@@ -12,6 +13,7 @@
         android:layout_width="413dp"
         android:layout_height="73dp"
         android:text="设置学分数"
+        android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <Button
@@ -19,17 +21,20 @@
         android:layout_width="413dp"
         android:layout_height="73dp"
         android:text="添加"
+        android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="@id/btn_add_credit_need"
         app:layout_constraintTop_toBottomOf="@+id/btn_add_credit_need" />
     <Button
         android:id="@+id/btn_read_subject_credit"
         android:layout_width="413dp"
         android:layout_height="73dp"
+        android:textSize="30dp"
         android:text="讀取"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_add_subject_credit" />
     <Button
         android:id="@+id/btn_remove_subject_credit"
+        android:textSize="30dp"
         android:layout_width="413dp"
         android:layout_height="73dp"
         android:text="移除"
@@ -39,6 +44,7 @@
         android:id="@+id/btn_quit"
         android:layout_width="413dp"
         android:layout_height="73dp"
+        android:textSize="30dp"
         android:text="退出"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_remove_subject_credit" />

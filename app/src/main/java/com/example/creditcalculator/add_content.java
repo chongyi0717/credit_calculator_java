@@ -2,21 +2,16 @@ package com.example.creditcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
+
 
 
 public class add_content extends AppCompatActivity {
@@ -39,8 +34,10 @@ public class add_content extends AppCompatActivity {
         btn_send_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!et_credit_show.getText().toString().isEmpty() && !et_subject_show.getText().toString().isEmpty()) {
-                    save(et_subject_show.getText().toString() + "\n", File_Subject);
+                if(!et_credit_show.getText().toString().isEmpty() && !et_subject_show.getText().toString().isEmpty()
+                        && isNumeric(et_credit_show.getText().toString())) {
+
+                    save(et_subject_show.getText().toString().replace("\n","")+ "\n", File_Subject);
                     save(et_credit_show.getText().toString() + "\n", File_Credit);
                     et_credit_show.setText("");
                     et_subject_show.setText("");
@@ -76,5 +73,11 @@ public class add_content extends AppCompatActivity {
                 }
             }
         }
+    }
+    public static boolean isNumeric(String str) {
+        if (str != null && !"".equals(str.trim())) {
+            return str.matches("^[0-9]*$");
+        }
+        return false;
     }
 }

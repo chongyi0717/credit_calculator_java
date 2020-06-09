@@ -4,19 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
+
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
-import static com.example.creditcalculator.R.id.MyTable;
-import static com.example.creditcalculator.R.id.tv_total;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 
 public class read_content extends AppCompatActivity {
     private final String File_Subject="subject.xml";
@@ -30,6 +27,7 @@ public class read_content extends AppCompatActivity {
     private TextView tv_total_show;
     private ConstraintLayout.LayoutParams my_table;
     private TextView tv_credit_need_show;
+    private Button btn_back_show;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +36,7 @@ public class read_content extends AppCompatActivity {
         tv_credit_show=this.findViewById(R.id.tv_credit);
         tv_total_show=this.findViewById(R.id.tv_total);
         tv_credit_need_show=this.findViewById(R.id.tv_credit_need);
+        btn_back_show=this.findViewById(R.id.btn_back);
         word_subject=read(File_Subject);
         word_credit=read(File_Credit);
         word_credit_need=read(File_Credit_Need);
@@ -45,12 +44,19 @@ public class read_content extends AppCompatActivity {
         tv_credit_show.setText(word_credit);
         tv_total_show.setText(sum(word_credit));
         tv_credit_need_show.setText(minus(word_credit_need,sum(word_credit)));
+        btn_back_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private String read(String filename)
     {
         FileInputStream fileInputStream=null;
-
+        save("",File_Subject);
+        save("",File_Credit);
         try {
             fileInputStream = openFileInput(filename);
             byte temp[] = new byte[1024];
@@ -70,6 +76,27 @@ public class read_content extends AppCompatActivity {
             e.printStackTrace();
         }
         return null;
+    }
+    private void save(String content, String filename) {
+        FileOutputStream fileOutputStream=null;
+
+        try {
+            fileOutputStream = openFileOutput(filename,MODE_APPEND);
+            fileOutputStream.write(content.getBytes());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            if(fileOutputStream!=null)
+            {
+                try{
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
     private String sum(String num)
     {

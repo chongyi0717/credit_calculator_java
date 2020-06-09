@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".add_content">
 
     <TextView
@@ -49,6 +50,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/et_credit"
         android:text="送出"
+        android:textSize="30dp"
         android:layout_marginTop="50dp"
         />
     <Button
@@ -56,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:textSize="30dp"
         app:layout_constraintTop_toBottomOf="@+id/btn_send"
         android:text="返回" />
 </androidx.constraintlayout.widget.ConstraintLayout>

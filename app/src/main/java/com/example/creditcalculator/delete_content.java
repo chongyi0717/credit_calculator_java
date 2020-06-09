@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
+
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,7 +20,7 @@ public class delete_content extends AppCompatActivity {
     private String File_Credit = "credit.xml";
     private Button btn_remove_show;
     private Button btn_back_show;
-    private EditText et_subject_show;
+    private AutoCompleteTextView et_subject_show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +29,12 @@ public class delete_content extends AppCompatActivity {
         et_subject_show = this.findViewById(R.id.et_subject);
         btn_remove_show = this.findViewById(R.id.btn_remove);
         btn_back_show = this.findViewById(R.id.btn_back);
-
+        String content_subject=read(File_Subject);
+        String[] content_subject_array=content_subject.split("\n");
+        et_subject_show.setAdapter (new ArrayAdapter<String>(this ,android.R.layout.simple_dropdown_item_1line ,content_subject_array ));
         btn_remove_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 delete(et_subject_show.getText().toString(), File_Subject,File_Credit);
                 et_subject_show.setText("");
             }
@@ -47,6 +50,8 @@ public class delete_content extends AppCompatActivity {
 
     private void delete(String word,String filename_subject,String filename_credit)
     {
+        save_append("",File_Subject);
+        save_append("",File_Credit);
         String content_subject=read(filename_subject);
         String content_credit=read(filename_credit);
         String[] content_subject_array=content_subject.split("\n");
