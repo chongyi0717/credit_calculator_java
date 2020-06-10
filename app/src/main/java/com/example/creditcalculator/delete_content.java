@@ -32,6 +32,12 @@ public class delete_content extends AppCompatActivity {
         String content_subject=read(File_Subject);
         String[] content_subject_array=content_subject.split("\n");
         et_subject_show.setAdapter (new ArrayAdapter<String>(this ,android.R.layout.simple_dropdown_item_1line ,content_subject_array ));
+        et_subject_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_subject_show.showDropDown();
+            }
+        });
         btn_remove_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

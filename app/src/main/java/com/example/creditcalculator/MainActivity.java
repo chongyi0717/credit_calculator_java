@@ -46,5 +46,12 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        findViewById(R.id.btn_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,clear_content.class);
+                startActivity(intent);
+            }
+        });
     }
 }

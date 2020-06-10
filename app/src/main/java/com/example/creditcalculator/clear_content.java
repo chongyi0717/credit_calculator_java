@@ -5,42 +5,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class credit_need extends AppCompatActivity {
-    private final String File_Credit_Need = "credit_need.xml";
-    private Button btn_send_show;
-    private EditText et1_show;
-    private Button btn_quit_show;
+public class clear_content extends AppCompatActivity {
+    private Button btn_yes_show;
+    private Button btn_no_show;
+    private String file_subject="subject.xml";
+    private String file_credit="credit.xml";
+    private String file_credit_need="credit_need.xml";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credit_need);
-        btn_send_show=this.findViewById(R.id.btn_send);
-        et1_show=this.findViewById(R.id.et1);
-        btn_quit_show=this.findViewById(R.id.btn_quit);
-        btn_send_show.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_clear_content);
+        btn_yes_show=this.findViewById(R.id.btn_yes);
+        btn_no_show=this.findViewById(R.id.btn_no);
+        btn_yes_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNumeric(et1_show.getText().toString())) {
-                    save(et1_show.getText().toString(), File_Credit_Need);
-                    et1_show.setText("");
-                    finish();
-                }
+                save_private("",file_subject);
+                save_private("",file_credit);
+                save_private("",file_credit_need);
+                finish();
             }
         });
-
-        btn_quit_show.setOnClickListener(new View.OnClickListener() {
+        btn_no_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
     }
-    private void save(String content,String filename) {
+    private void save_private(String content,String filename) {
         FileOutputStream fileOutputStream=null;
 
         try {
@@ -60,11 +57,5 @@ public class credit_need extends AppCompatActivity {
                 }
             }
         }
-    }
-    public static boolean isNumeric(String str) {
-        if (str != null && !"".equals(str.trim())) {
-            return str.matches("^[0-9]*$");
-        }
-        return false;
     }
 }

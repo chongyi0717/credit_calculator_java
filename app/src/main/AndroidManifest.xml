@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".credit_need"></activity>
+        <activity android:name=".clear_content"></activity>
+        <activity android:name=".credit_need" />
         <activity android:name=".delete_content" />
         <activity android:name=".read_content" />
         <activity android:name=".add_content" />

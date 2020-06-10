@@ -48,4 +48,12 @@
         android:text="退出"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_remove_subject_credit" />
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
+        android:textSize="30dp"
+        android:text="清空"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_quit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
